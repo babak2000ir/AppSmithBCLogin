@@ -1,0 +1,13 @@
+{
+    "al.editorServicesLogLevel": "Verbose",
+    "CRS.AlSubFolderName": "src",
+    "CRS.FileNamePattern": "<ObjectNameShort>(<ObjectId>).al",
+    "CRS.FileNamePatternExtensions": "<BaseNameShort>.<ObjectName>(<ObjectId>).al",
+    "CRS.FileNamePatternPageCustomizations": "<ObjectName>(<BaseName>) [Cust<ObjectId>].al",
+    "CRS.OnSaveAlFileAction": "Reorganize",
+    "al.codeAnalyzers": [
+        "${CodeCop}"
+    ],
+    "al.backgroundCodeAnalysis": true,
+    "al.enableCodeAnalysis": true
+}

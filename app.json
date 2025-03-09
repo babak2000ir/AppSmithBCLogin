@@ -1,0 +1,32 @@
+{
+  "id": "d5f0403f-ef5f-462f-898c-6bebd3130ba8",
+  "name": "AppSmith BC Login",
+  "publisher": "TransPerEn",
+  "version": "25.0.0.3",
+  "brief": "",
+  "description": "Login Mechanism for appsmith solutions",
+  "privacyStatement": "",
+  "EULA": "",
+  "help": "",
+  "url": "",
+  "logo": "",
+  "dependencies": [],
+  "screenshots": [],
+  "platform": "1.0.0.0",
+  "application": "25.0.0.0",
+  "idRanges": [
+    {
+      "from": 70249925,
+      "to": 70250924
+    }
+  ],
+  "resourceExposurePolicy": {
+    "allowDebugging": true,
+    "allowDownloadingSource": true,
+    "includeSourceInSymbolFile": true
+  },
+  "runtime": "14.0",
+  "features": [
+    "NoImplicitWith"
+  ]
+}
