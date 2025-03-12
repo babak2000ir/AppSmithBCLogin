@@ -6,8 +6,11 @@
     "CRS.FileNamePatternPageCustomizations": "<ObjectName>(<BaseName>) [Cust<ObjectId>].al",
     "CRS.OnSaveAlFileAction": "Reorganize",
     "al.codeAnalyzers": [
+        "${UICop}",
         "${CodeCop}"
     ],
-    "al.backgroundCodeAnalysis": true,
-    "al.enableCodeAnalysis": true
+    "al.backgroundCodeAnalysis": "Project",
+    "al.enableCodeAnalysis": true,
+    "al.ruleSetPath": "./.vscode/TPE.ruleset.json",
+    "al.browser": "SystemDefault"
 }

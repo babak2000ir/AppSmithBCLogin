@@ -1,0 +1,11 @@
+{
+    "name": "Ruleset",
+    "description": "Ruleset description",
+    "rules": [
+        {
+            "id": "AA0215",
+            "action": "None",
+            "justification": "Not a sensible rule."
+        }     
+    ]
+}
