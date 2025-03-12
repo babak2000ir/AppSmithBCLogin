@@ -1,8 +1,8 @@
 namespace TransPerEn.AppSmithBCLogin;
 
-page 70249925 "Appsmith Login List TPE"
+page 70249925 "Appsmith User Login List TPE"
 {
-    Caption = 'Appsmith Login List';
+    Caption = 'Appsmith User Login List';
     PageType = List;
     UsageCategory = Lists;
     ApplicationArea = All;
@@ -26,6 +26,10 @@ page 70249925 "Appsmith Login List TPE"
                 field("E-Mail"; Rec."E-Mail")
                 {
                     ToolTip = 'Specifies the value of the Email field.', Comment = '%';
+                }
+                field(Password; Rec.Password)
+                {
+                    ToolTip = 'Specifies the value of the Password field.', Comment = '%';
                 }
             }
         }

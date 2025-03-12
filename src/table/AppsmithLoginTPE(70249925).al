@@ -29,7 +29,6 @@ table 70249925 "Appsmith Login TPE"
         field(30; "Password"; Text[80])
         {
             ExtendedDatatype = Masked;
-            Editable = false;
             DataClassification = SystemMetadata;
         }
     }

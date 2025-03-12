@@ -13,9 +13,10 @@ page 70249926 "AppSmith Setup TPE"
             group(AppsmithLogin)
             {
                 Caption = 'Appsmith Login';
-                field("Appsmith Application User"; Rec."Appsmith Application User")
+
+                field("Login Secret Key"; Rec."Login Secret Key")
                 {
-                    ToolTip = 'Specifies the value of the Appsmith Application User field.', Comment = '%';
+                    ToolTip = 'Specifies the value of the Login Secret Key field.', Comment = '%';
                 }
             }
         }

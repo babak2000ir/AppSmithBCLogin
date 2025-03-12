@@ -8,10 +8,10 @@ table 70249926 "Appsmith Setup TPE"
         {
             DataClassification = ToBeClassified;
         }
-        field(10; "Appsmith Application User"; Guid)
+        field(10; "Login Secret Key"; Text[16])
         {
-            DataClassification = ToBeClassified;
-            TableRelation = User."User Security ID" where("License Type" = const(Application));
+            NotBlank = true;
+            ExtendedDatatype = Masked;
         }
     }
 
