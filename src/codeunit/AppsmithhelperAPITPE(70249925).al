@@ -33,6 +33,7 @@ codeunit 70249925 "Appsmith helper API TPE"
         JOPayload: JsonObject;
         JToken: JsonToken;
         ExpiaryDT: DateTime;
+        lSubject: guid;
     begin
         TokenParts := Token.Split('.');
         if TokenParts.Count <> 3 then
@@ -69,7 +70,8 @@ codeunit 70249925 "Appsmith helper API TPE"
 
         //Return Subject
         JOPayload.Get('sub', JToken);
-        if Subject <> JToken.AsValue().AsText() then
+        lSubject := JToken.AsValue().AsText();
+        if Subject <> lSubject then
             exit(false);
 
         exit(true);
@@ -84,10 +86,10 @@ codeunit 70249925 "Appsmith helper API TPE"
     begin
         Header := this.ToBase64UrlSafe(this.HeaderLbl);
         Payload := this.ToBase64UrlSafe(StrSubstNo(PayloadTemplateLbl,
-                                CompanyProperty.ID(),
-                                AppsmithLogin.SystemId,
-                                UserSecurityId(),
-                                this.GetExpiry()));
+                                            CompanyProperty.ID(),
+                                            AppsmithLogin.SystemId,
+                                            UserSecurityId(),
+                                            this.GetExpiry()));
 
         Signature := this.GenerateSignature(Header, Payload);
 
@@ -116,7 +118,7 @@ codeunit 70249925 "Appsmith helper API TPE"
         Epoch := CreateDateTime(19700101D, 0T);
 
         Duration := pDateTime - Epoch;
-        Timestamp := Duration;
+        Timestamp := Duration div 1000;
 
         exit(Timestamp);
     end;
@@ -133,7 +135,7 @@ codeunit 70249925 "Appsmith helper API TPE"
 
     local procedure UrlSafeReverse(Input: Text): Text
     begin
-        exit(PadUrlSafeBase64String(ConvertStr(Input, '-_', '+/')));
+        exit(this.PadUrlSafeBase64String(ConvertStr(Input, '-_', '+/')));
     end;
 
     procedure PadUrlSafeBase64String(Input: Text): Text
