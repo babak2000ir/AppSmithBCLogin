@@ -11,6 +11,7 @@ codeunit 70249925 "Appsmith helper API TPE"
     procedure GetToken(UserEmail: Text; UserPassword: Text): Text
     var
         AppsmithLogin: Record "Appsmith Login TPE";
+        LoginResponseLbl: Label '{"token":"%1",userId":"%2",userName":"%3"}', Locked = true;
     begin
         this.AppsmithSetup.Get();
         this.AppsmithSetup.TestField("Login Secret Key");
@@ -19,7 +20,7 @@ codeunit 70249925 "Appsmith helper API TPE"
         AppsmithLogin.SetRange("E-Mail", UserEmail);
         AppsmithLogin.SetRange("Password", UserPassword);
         if AppsmithLogin.FindFirst() then
-            exit(this.GenerateToken(AppsmithLogin));
+            exit(StrSubstNo(LoginResponseLbl, this.GenerateToken(AppsmithLogin), AppsmithLogin.SystemId, AppsmithLogin.GetName()));
         Error('User not found');
     end;
 

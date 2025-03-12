@@ -41,32 +41,35 @@ table 70249925 "Appsmith Login TPE"
         }
     }
 
-    fieldgroups
-    {
-        // Add changes to field groups here
-    }
-
+    procedure GetName(): Text
     var
-        myInt: Integer;
-
-    trigger OnInsert()
+        Customer: Record "Customer";
+        Vendor: Record "Vendor";
+        Contact: Record "Contact";
+        Employee: Record "Employee";
     begin
-
-    end;
-
-    trigger OnModify()
-    begin
-
-    end;
-
-    trigger OnDelete()
-    begin
-
-    end;
-
-    trigger OnRename()
-    begin
-
+        case "Login Source" of
+            "Login Source"::Customer:
+                begin
+                    Customer.Get("Source No.");
+                    exit(Customer."Name");
+                end;
+            "Login Source"::Vendor:
+                begin
+                    Vendor.Get("Source No.");
+                    exit(Vendor."Name");
+                end;
+            "Login Source"::Contact:
+                begin
+                    Contact.Get("Source No.");
+                    exit(Contact."Name");
+                end;
+            "Login Source"::Employee:
+                begin
+                    Employee.Get("Source No.");
+                    exit(Employee.FullName());
+                end;
+        end;
     end;
 
 }
