@@ -17,6 +17,13 @@ page 70249926 "AppSmith Setup TPE"
                 field("Login Secret Key"; Rec."Login Secret Key")
                 {
                     ToolTip = 'Specifies the value of the Login Secret Key field.', Comment = '%';
+                    ApplicationArea = All;
+                }
+
+                field("Token Validity"; Rec."Token Validity")
+                {
+                    ToolTip = 'Specifies the value of the Token Validity (Minutes) field.', Comment = '%';
+                    ApplicationArea = All;
                 }
             }
         }

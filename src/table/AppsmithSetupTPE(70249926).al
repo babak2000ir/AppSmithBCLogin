@@ -20,6 +20,10 @@ table 70249926 "Appsmith Setup TPE"
                         Error('');
             end;
         }
+        field(20; "Token Validity"; DateFormula)
+        {
+            NotBlank = true;
+        }
     }
 
     keys

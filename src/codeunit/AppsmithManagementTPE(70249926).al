@@ -142,8 +142,10 @@ codeunit 70249926 "Appsmith Management TPE"
     var
         lDateTime: DateTime;
     begin
+        this.GetAppsmithSetup();
+
         lDateTime := CurrentDateTime();
-        exit(this.GetTimestamp(CreateDateTime(CalcDate('<+2D>', DT2Date(lDateTime)), DT2Time(lDateTime))));
+        exit(this.GetTimestamp(CreateDateTime(CalcDate(this.AppsmithSetup."Token Validity", DT2Date(lDateTime)), DT2Time(lDateTime))));
     end;
 
     local procedure GetTimestamp(pDateTime: DateTime): BigInteger
