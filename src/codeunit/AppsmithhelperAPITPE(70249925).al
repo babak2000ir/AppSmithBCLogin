@@ -7,7 +7,7 @@ codeunit 70249925 "Appsmith helper API TPE"
     var
         AppsmithLogin: Record "Appsmith Login TPE";
         UserSourceEnum: Enum "Login Source Type TPE";
-        LoginResponseLbl: Label '{"token":"%1",userId":"%2",userName":"%3"}', Locked = true;
+        LoginResponseLbl: Label '{"token":"%1","userId":"%2","sourceNo":"%3","userName":"%4"}', Locked = true;
     begin
         Evaluate(UserSourceEnum, UserSource);
 
@@ -16,7 +16,7 @@ codeunit 70249925 "Appsmith helper API TPE"
         AppsmithLogin.SetRange("E-Mail", UserEmail);
         if AppsmithLogin.FindFirst() then
             if AppsmithLogin."Password Hash" = this.AppsmithMgmt.GeneratePasswordHash(UserPassword, AppsmithLogin."Password Salt") then
-                exit(StrSubstNo(LoginResponseLbl, this.AppsmithMgmt.GenerateToken(AppsmithLogin), AppsmithLogin.SystemId, AppsmithLogin.GetName()));
+                exit(StrSubstNo(LoginResponseLbl, this.AppsmithMgmt.GenerateToken(AppsmithLogin), AppsmithLogin.SystemId, AppsmithLogin."Source No.", AppsmithLogin.GetName()));
         Error('User not found');
     end;
 
