@@ -27,31 +27,10 @@ page 70249925 "Appsmith User Login List TPE"
                 {
                     ToolTip = 'Specifies the value of the Email field.', Comment = '%';
                 }
-                field(Password; Rec.Password)
+                field(Password; Rec."Password Hash")
                 {
                     ToolTip = 'Specifies the value of the Password field.', Comment = '%';
                 }
-            }
-        }
-    }
-
-    actions
-    {
-        area(Processing)
-        {
-            action(SetPassword)
-            {
-                ApplicationArea = All;
-                Caption = 'Set Password';
-                ToolTip = 'Set the password for the user';
-                Promoted = true;
-                PromotedIsBig = true;
-                PromotedCategory = Process;
-
-                trigger OnAction();
-                begin
-                    Message('SetPassword');
-                end;
             }
         }
     }

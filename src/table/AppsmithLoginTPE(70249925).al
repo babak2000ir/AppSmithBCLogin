@@ -26,7 +26,13 @@ table 70249925 "Appsmith Login TPE"
             ExtendedDatatype = EMail;
             DataClassification = EndUserIdentifiableInformation;
         }
-        field(30; "Password"; Text[80])
+        field(30; "Password Hash"; Text[80])
+        {
+            Caption = 'Password';
+            ExtendedDatatype = Masked;
+            DataClassification = SystemMetadata;
+        }
+        field(31; "Password Salt"; Text[80])
         {
             ExtendedDatatype = Masked;
             DataClassification = SystemMetadata;

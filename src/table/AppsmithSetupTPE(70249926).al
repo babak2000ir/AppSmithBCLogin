@@ -12,6 +12,13 @@ table 70249926 "Appsmith Setup TPE"
         {
             NotBlank = true;
             ExtendedDatatype = Masked;
+
+            trigger OnValidate()
+            begin
+                if xRec."Login Secret Key" <> '' then
+                    if not Confirm('Are you sure you want to change the Login Secret Key?', true) then
+                        Error('');
+            end;
         }
     }
 
