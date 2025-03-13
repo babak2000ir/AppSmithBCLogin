@@ -31,6 +31,13 @@ table 70249925 "Appsmith Login TPE"
             Caption = 'Password';
             ExtendedDatatype = Masked;
             DataClassification = SystemMetadata;
+
+            trigger OnValidate()
+            var
+                AppsmithMgmt: Codeunit "Appsmith Management TPE";
+            begin
+                AppsmithMgmt.GenerateSaltAndHashPassword(Rec."Password Hash", Rec);
+            end;
         }
         field(31; "Password Salt"; Text[80])
         {

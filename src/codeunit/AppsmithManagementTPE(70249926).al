@@ -9,7 +9,7 @@ codeunit 70249926 "Appsmith Management TPE"
         HashAlgorithmType: Option MD5,SHA1,SHA256,SHA384,SHA512;
         HeaderLbl: Label '{"alg":"HS256","typ": "JWT"}', Locked = true;
 
-    procedure GenerateSaltAndHashPassword(Password: Text; AppsmithUserLogin: Record "Appsmith Login TPE")
+    procedure GenerateSaltAndHashPassword(Password: Text; var AppsmithUserLogin: Record "Appsmith Login TPE")
     var
         Salt: Text[80];
         SaltLength: Integer;
@@ -28,7 +28,7 @@ codeunit 70249926 "Appsmith Management TPE"
         AppsmithUserLogin."Password Salt" := Salt;
 
         // Hash the password combined with the salt
-        AppsmithUserLogin."Password Hash" := CryptoMgmt.GenerateHash(Salt + Password, this.HashAlgorithmType::SHA256).Substring(0, 80);
+        AppsmithUserLogin."Password Hash" := CopyStr(this.GeneratePasswordHash(Password, Salt), 1, 80);
     end;
 
     procedure GeneratePasswordHash(Password: Text; Salt: Text[80]): Text
